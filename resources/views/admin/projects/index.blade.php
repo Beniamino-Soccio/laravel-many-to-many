@@ -22,6 +22,15 @@
                             <h5 class="card-title fw-bold fs-3">{{ $project->title }}</h5>
                             <p class="card-text">{{ $project->info }}</p>
                             <a href="{{ $project->url }}" class="card-link">Repository GitHUb</a>
+                            <div>
+                                @forelse ($post->tags as $tag)
+                                    <span class="badge text-bg-primary">
+                                        #{{ strtolower($tag->name) }}
+                                    </span>
+                                @empty
+                                    <span>No tags</span>
+                                @endforelse
+                            </div>
                             <div class="mt-2">
                                 <a href="{{ route("admin.projects.show", $project->id) }}" class="btn btn-sm btn-primary me-2">Show</a>
                                 <a href="{{ route("admin.projects.edit", $project->id) }}" class="btn btn-sm btn-success me-2">Edit</a>
