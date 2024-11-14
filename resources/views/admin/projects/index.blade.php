@@ -23,12 +23,12 @@
                             <p class="card-text">{{ $project->info }}</p>
                             <a href="{{ $project->url }}" class="card-link">Repository GitHUb</a>
                             <div>
-                                @forelse ($post->tags as $tag)
+                                @forelse ($project->technologies as $technology)
                                     <span class="badge text-bg-primary">
-                                        #{{ strtolower($tag->name) }}
+                                        #{{ strtolower($technology->name) }}
                                     </span>
                                 @empty
-                                    <span>No tags</span>
+                                    <span>No technologies</span>
                                 @endforelse
                             </div>
                             <div class="mt-2">

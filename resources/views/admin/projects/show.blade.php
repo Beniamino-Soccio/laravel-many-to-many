@@ -21,6 +21,15 @@
                 <li class="mb-2">
                     url: <a href="{{ $project["url"] }}">URL GitHUb</a>
                 </li>
+                <li>
+                    @forelse ($project->technologies as $technology)
+                        <span class="badge text-bg-primary">
+                            #{{ strtolower($technology->name) }}
+                        </span>
+                    @empty
+                        <span>No technologies</span>
+                    @endforelse
+                </li>
             </ul>
         </div>
     </div>
